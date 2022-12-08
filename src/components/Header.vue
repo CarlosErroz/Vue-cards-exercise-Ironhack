@@ -4,8 +4,11 @@
     <a href="#" class="text-white">Smartphones</a>
     <a href="#" class="text-white">Notebooks</a>
 
-    <button class="text-white bg-cyan-500 rounded w-32 h-10">Cart</button>
-  </nav>
+    <div>
+      <button class="text-white bg-cyan-500 rounded w-32 h-10 text-left pl-10">Cart</button>
+      <slot></slot>      
+    </div> 
+    </nav>
 </template>
 
 <script setup>

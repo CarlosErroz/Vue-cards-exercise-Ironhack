@@ -6,13 +6,19 @@
       <p>{{product.price}}€</p>
       <p>id: {{product.id}}</p>
     </div>
-    <button class="bg-green-500 rounded min-w-full h-10 text-white font-semibold">Add to cart</button>
+    <button class="bg-green-500 rounded min-w-full h-10 text-white font-semibold" @click="buyProduct(product)">Add to cart</button>
   </article>
 </template>
 
 <script setup>
 import {ref} from 'vue';
 const props = defineProps(["product"]);
+
+const purchase = ref([]);
+
+function buyProduct(product) {
+  console.log(product);
+}
 </script>
 
 <style>
