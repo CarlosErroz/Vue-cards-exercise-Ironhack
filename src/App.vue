@@ -8,7 +8,8 @@
   <div class="background-purchase-list" @click="showPurchase()" v-if="showPurch">
   </div>
 
-  <div class="purchase-list flex flex-col" v-if="showPurch">
+  <div class="purchase-list flex flex-col bg-slate-200" v-if="showPurch">
+    <div class="w-10 h-10 bg-slate-200 detail"></div>
     <Subcard v-for="item in purchase" :item="item"></Subcard>
     <div>
       <p class="m-2 text-lg font-semibold">Total: {{ totalAmount }}€</p>
@@ -50,6 +51,7 @@ function buyProduct(product) {
   numberPurchase.value += +1;
   purchase.value.push(product);
   totalAmount.value += Number(product.price);
+  totalAmount.value.toFixed(2);
 }
 
 const showPurch = ref(false);
@@ -73,14 +75,13 @@ function showPurchase() {
 .background-purchase-list {
   position: absolute;
   width:100vw;
-  height: 100vh;
+  height: 2000px;
   opacity:0.4;
   background-color: grey;
   top:0%;
 }
 .purchase-list {
   position: absolute;
-  background-color: rgba(238, 236, 236);
   border-radius: 10px;
   z-index:1;
   width:500px;
@@ -88,6 +89,13 @@ function showPurchase() {
   right:20%;
   animation: appearUp;
   animation-duration: 0.5s;
+}
+.detail {
+  position:absolute;
+  z-index:-1;
+  top:-5%;
+  right:5%;
+  transform:rotate(45deg);
 }
 @keyframes appearUp {
   from {
